@@ -1,0 +1,26 @@
+/* Change background color for GTK windows */
+
+@font-face {
+    font-family: 'Meme'; /*For what the font is called */
+    src: url('papyrus.ttf');
+}
+window {
+    background-color: #7A4B3A;  /* Brown background */
+    color: #ffffff;              /* White text */
+    font-family: 'Meme';
+}
+
+/* Button background color */
+button {
+    background-color: #9E7B5F;  /* Light brown button background */
+    color: #ffffff;              /* White button text */
+    border: 1px solid #7A4B3A;   /* Darker brown border */
+    font-family: 'Meme';
+}
+
+/* Text entry field background */
+entry {
+    background-color: #9E7B5F;  /* Brown background */
+    color: #ffffff;              /* White text */
+}
+

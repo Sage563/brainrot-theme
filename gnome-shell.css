@@ -1,0 +1,35 @@
+@font-face {
+    font-family: "Meme";
+    src: url('gtk-4.0/papyrus.ttf');
+}
+
+#overview {
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+}
+.message-list {
+    background-color: #444444;
+    border-radius: 8px;
+    color: #ffffff;
+}
+#overview {
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+}
+.panel {
+    background-color: #1e1e1e; /* Dark gray */
+    border-bottom: 1px solid #333333;
+    font-size: 11pt;
+}
+/* Set font for top bar text */
+#panel {
+    font-family: "Meme"; /* Set your desired font here */
+}
+
+/* Set font for button text */
+button {
+    font-family: "Meme";  /* Set your desired font here */
+}
+
+/* Set font for notifications */
+.notification {
+    font-family: "Meme", ;
+}
