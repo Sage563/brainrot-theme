@@ -16,8 +16,8 @@ sudo cp -r gtk-3.0/gtk.css "$THEME_DIR/gtk-3.0/"
 sudo cp -r gtk-4.0/gtk.css "$THEME_DIR/gtk-4.0/"
 sudo cp -r gnome-shell.css "$THEME_DIR/gnome-shell/"
 sudo cp -r scripts/freetskib.py "$THEME_DIR/scripts/"
-
-
+sudo cp -r gtk-3.0/papyrus.ttf "$THEME_DIR/gtk-3.0/"
+sudo cp -r gtk-4.0/papyrus.ttf "$THEME_DIR/gtk-4.0/"
 #donwloand
 sudo pacman -S gnome-tweaks
 # Install required packages
