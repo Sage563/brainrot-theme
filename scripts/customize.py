@@ -5,7 +5,7 @@ def getfile(efile):
     with open(efile ,"r") as f:
         rf =f.read()
     return rf
-
+    print(rf)
 def write_bashrc(lines):
     bashrc_path = os.path.expanduser("~/.bashrc")
     with open(bashrc_path, "w") as file:
