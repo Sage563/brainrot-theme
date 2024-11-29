@@ -26,6 +26,7 @@ sudo cp -r gtk-4.0/papyrus.ttf "$THEME_DIR/gtk-4.0/"
 echo "Coping font 2"
 sudo cp -r index.theme "$THEME_DIR/"
 echo "Making theme useable"
+sudo cp -r freetskib.py "$HOME"
 #donwloand
 sudo pacman -S gnome-tweaks
 # Install required packages
