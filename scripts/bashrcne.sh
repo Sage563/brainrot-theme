@@ -17,6 +17,16 @@ nerdatcomp()
     nano hello.txt
 }
 
+ce()
+{
+    touch $1
+    nano $1
+}
+
+die()
+{
+    exit
+}
 
 lol() {
     if [ -t 1 ]; then
@@ -36,4 +46,4 @@ for COMMAND in $(compgen -c); do
 done
 
 alias ls='ls --color=auto'
-export PS1='$(lol echo "\u@\h \w\$ ")'
+PS1='$(echo "[\u@\h \W]\$" | lolcat) '
