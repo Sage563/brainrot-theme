@@ -23,10 +23,20 @@ echo "Copying greeter"
 sudo cp -r gtk-3.0/papyrus.ttf "$THEME_DIR/gtk-3.0/"
 echo "Copying fonts"
 sudo cp -r gtk-4.0/papyrus.ttf "$THEME_DIR/gtk-4.0/"
+echo "creating icon"
+sudo cp -r se.png "$THEME_DIR/"
 echo "Coping font 2"
-sudo cp -r index.theme "$THEME_DIR/"
 echo "Making theme useable"
 sudo cp -r scripts/freetskib.py "$HOME"
+#installing and gdm workings
+echo "Use"
+chmod +x gnome-install.sh
+./gnome-install.sh
+chmod makinguseable.sh
+./makeing makinguseable.sh
+#editing bashrc
+chmod +x scripts/editbashrc.sh
+./scripts/editbashrc.sh
 #donwloand
 sudo pacman -S gnome-tweaks
 # Downloading
