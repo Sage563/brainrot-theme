@@ -38,12 +38,12 @@ chmod makinguseable.sh
 chmod +x scripts/editbashrc.sh
 ./scripts/editbashrc.sh
 #donwloand
-sudo pacman -S gnome-tweaks
+sudo pacman -S  --noconfirm gnome-tweaks
 # Downloading
-sudo pacman -S sl 
-sudo pacman -S neofetch 
-sudo pacman -S lolcat 
-sudo pacman -S git
+sudo pacman -S --noconfirm sl 
+sudo pacman -S --noconfirm neofetch 
+sudo pacman -S --noconfirm lolcat 
+sudo pacman -S --noconfirm git
 # Set permissions
 echo "Setting permissions..."
 sudo chmod -R 755 "$THEME_DIR"
