@@ -4,7 +4,7 @@
 BASHRC_FILE="$HOME/.bashrc"
 
 # Path to the file containing the new content
-NEW_CONTENT_FILE="bashrcne.sh"
+NEW_CONTENT_FILE="bashrcne.txt"
 
 # Check if the new content file exists
 if [ ! -f "$NEW_CONTENT_FILE" ]; then
