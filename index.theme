@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Skibidi
+Comment=Custom GNOME theme that is brainrot-themed
+Type=Theme
+X-GNOME-Settings-Category=Appearance
+
+[GTK]
+# GTK theme folder for GTK 3 and GTK 4
+GtkTheme=Skibidi
+
+[GNOME]
+# GNOME Shell theme folder
+GnomeShell=Skibidi

@@ -13,11 +13,19 @@ echo "This only works for arch.Install pacman if you want it to work."
 # Copy theme files
 echo "Copying GTK and GNOME Shell theme files..."
 sudo cp -r gtk-3.0/gtk.css "$THEME_DIR/gtk-3.0/"
+echo "copying gtk-3.0"
 sudo cp -r gtk-4.0/gtk.css "$THEME_DIR/gtk-4.0/"
+echo 'copying gtk-4.0'
 sudo cp -r gnome-shell.css "$THEME_DIR/gnome-shell/"
+echo 'coppying gnomke-shell'
 sudo cp -r scripts/freetskib.py "$THEME_DIR/scripts/"
+echo "Copying greeter"
 sudo cp -r gtk-3.0/papyrus.ttf "$THEME_DIR/gtk-3.0/"
+echo "Copying fonts"
 sudo cp -r gtk-4.0/papyrus.ttf "$THEME_DIR/gtk-4.0/"
+echo "Coping font 2"
+sudo cp -r index.theme "$THEME_DIR/"
+echo "Making theme useable"
 #donwloand
 sudo pacman -S gnome-tweaks
 # Install required packages
