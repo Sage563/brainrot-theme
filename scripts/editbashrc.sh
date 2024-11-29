@@ -2,9 +2,9 @@
 
 # Path to .bashrc
 BASHRC_FILE="$HOME/.bashrc"
-
+pwd
 # Path to the file containing the new content
-NEW_CONTENT_FILE="bashrcne.txt"
+NEW_CONTENT_FILE="scripts/bashrcne.txt"
 
 # Check if the new content file exists
 if [ ! -f "$NEW_CONTENT_FILE" ]; then
