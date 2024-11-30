@@ -1,2 +1,1 @@
-neofetch -backend jp2a -source $HOME/se.png
-pwd
+sudo mv neofetch /usr/bin/neofetch
