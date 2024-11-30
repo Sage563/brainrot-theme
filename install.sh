@@ -47,7 +47,7 @@ chmod +x scripts/editbashrc.sh
 #donwloand
 sudo pacman -S  --noconfirm gnome-tweaks
 #getting scripts ready
-echo "[Unit]
+sudo echo "[Unit]
 Description=Fetch GitHub Repo and Run install.sh
 After=network.target
 
@@ -82,7 +82,7 @@ if [ -f "$THEME_DIR/scripts/customize.py" ]; then
 else
     echo "Customization script not found!"
 fi
-chmdod +x ./scripts/updater.sh
+chmod +x ./scripts/updater.sh
 ./scripts/updater.sh
 echo "Theme installed successfully to $THEME_DIR."
 
