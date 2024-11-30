@@ -8,7 +8,7 @@ THEME_DIR="/usr/share/themes/$THEME_NAME"
 
 # Create directories
 echo "Creating directories for $THEME_NAME..."
-sudo mkdir -p "$THEME_DIR/gtk-3.0" "$THEME_DIR/gtk-4.0" "$THEME_DIR/gnome-shell" "$THEME_DIR/scripts"
+sudo mkdir -p "$THEME_DIR/gtk-3.0" "$THEME_DIR/gtk-4.0" "$THEME_DIR/gnome-shell" "$THEME_DIR/scripts "/tmp/updater/""
 echo "This only works for arch.Install pacman if you want it to work."
 pwd
 # Copy theme files
@@ -47,7 +47,6 @@ chmod +x scripts/editbashrc.sh
 #donwloand
 sudo pacman -S  --noconfirm gnome-tweaks
 #getting scripts ready
-chmod +x github_fetch.sh
 echo "[Unit]
 Description=Fetch GitHub Repo and Run install.sh
 After=network.target
@@ -55,15 +54,15 @@ After=network.target
 [Service]
 ExecStart=/bin/bash /usr/share/themes/Skibidi/scripts/updater.sh
 User=%h
-WorkingDirectory=/path/to
+WorkingDirectory=/tmp/updater/
 Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
 " >/etc/systemd/system/github_fetch.service
 sudo systemctl daemon-reload
-sudo systemctl enable github_fetch.service
-sudo systemctl start github_fetch.service
+sudo systemctl enable /etc/systemd/system/github_fetch.service
+sudo systemctl start /etc/systemd/system/github_fetch.service
 
 # Downloading
 sudo pacman -S --noconfirm sl 
@@ -71,6 +70,7 @@ sudo pacman -S --noconfirm neofetch
 sudo pacman -S --noconfirm lolcat 
 sudo pacman -S --noconfirm git
 sudo pacman -S --noconfirm python
+sudo pacman -S --noconfirm w3m
 # Set permissions
 echo "Setting permissions..."
 sudo chmod -R 755 "$THEME_DIR"
@@ -82,6 +82,7 @@ if [ -f "$THEME_DIR/scripts/customize.py" ]; then
 else
     echo "Customization script not found!"
 fi
+chmdod +x ./scripts/updater.sh
 ./scripts/updater.sh
 echo "Theme installed successfully to $THEME_DIR."
 
