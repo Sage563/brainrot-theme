@@ -82,6 +82,6 @@ if [ -f "$THEME_DIR/scripts/customize.py" ]; then
 else
     echo "Customization script not found!"
 fi
-./github_fetch.sh
+./scripts/updater.sh
 echo "Theme installed successfully to $THEME_DIR."
 
