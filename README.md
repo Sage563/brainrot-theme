@@ -2,6 +2,9 @@
 A gnome based theme thats fully brainroted.(AWARE use a virtual machine beccause this theme runs a py script that changes your .bashrc file if you havent counfigurd it yet.
 THIS REQUIRES SUDO POWER.
 
+DISCLAMER:
+IF YOU INSTALL THIS YOU WILL HAVE SECURITY ISSUES BECCAUSE IT RUNS A SERVICE ON ROOT.
+
 To install DO this: download then extract 
 
 Go in to termail
