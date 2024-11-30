@@ -32,8 +32,6 @@ sudo cp -r scripts/freetskib.py "$HOME"
 echo "Use"
 chmod +x gnome-install.sh
 ./gnome-install.sh
-chmod makinguseable.sh
-./makeing makinguseable.sh
 #editing bashrc
 chmod +x scripts/editbashrc.sh
 ./scripts/editbashrc.sh
