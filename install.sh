@@ -33,7 +33,7 @@ sudo cp -r scripts/freetskib.py "$HOME"
 echo "Making updater"
 sudo cp -r scripts/updater.sh "$THEME_DIR/scripts"
 sudo cp -r scripts/battery_checker.py "$THEME_DIR/scripts"
-sudo cp -r scripts/playsound "$THEME_DIR/scripts"
+sudo cp -r scripts/playsound.py "$THEME_DIR/scripts"
 sudo cp -r fannum_battery.wav "$HOME"
 #edit neofetch
 echo "Editing neofetch"
