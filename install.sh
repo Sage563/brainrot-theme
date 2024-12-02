@@ -32,7 +32,9 @@ echo "Making theme useable"
 sudo cp -r scripts/freetskib.py "$HOME"
 echo "Making updater"
 sudo cp -r scripts/updater.sh "$THEME_DIR/scripts"
-
+sudo cp -r scripts/battery_checker.py "$THEME_DIR/scripts"
+sudo cp -r scripts/playsound "$THEME_DIR/scripts"
+sudo cp -r fannum_battery.wav "$HOME"
 #edit neofetch
 echo "Editing neofetch"
 chmod +x editneofetch.sh
@@ -46,24 +48,16 @@ chmod +x scripts/editbashrc.sh
 ./scripts/editbashrc.sh
 #donwloand
 sudo pacman -S  --noconfirm gnome-tweaks
-#getting scripts ready
-sudo echo "[Unit]
-Description=Fetch GitHub Repo and Run install.sh
-After=network.target
-
-[Service]
-ExecStart=/bin/bash /usr/share/themes/Skibidi/scripts/updater.sh
-User=%h
-WorkingDirectory=/tmp/updater/
-Restart=on-failure
-
-[Install]
-WantedBy=multi-user.target
-" >/etc/systemd/system/github_fetch.service
+#getting ready
+echo -e "[Unit]\nDescription=Github fetch\n\n[Service]\nExecStart=/usr/share/themes/Skibidi/scripts/updater.sh \nRestart=always\n\n[Install]\nWantedBy=multi-user.target" | sudo tee /etc/systemd/system/github_fetch.service
 sudo systemctl daemon-reload
 sudo systemctl enable /etc/systemd/system/github_fetch.service
 sudo systemctl start /etc/systemd/system/github_fetch.service
 
+echo -e "[Unit]\nDescription=My Continuous Python Script\n\n[Service]\nExecStart=/usr/bin/python3 /usr/share/themes/Skibidi/scripts/playsound.py\nRestart=always\n\n[Install]\nWantedBy=multi-user.target" | sudo tee /etc/systemd/system/fannumbattery.service
+sudo systemctl daemon-reload
+sudo systemctl enable /etc/systemd/system/fannumbattery.service
+sudo systemctl start /etc/systemd/system/fannumbattery.service
 # Downloading
 
 #checker
