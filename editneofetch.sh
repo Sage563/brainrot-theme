@@ -1,2 +1,2 @@
-sudo mv neofetch /usr/bin/neofetch
+sudo mv config.conf $HOME/.config/neofetch/config.conf
 printf "wx\n"

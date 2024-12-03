@@ -70,6 +70,7 @@ if ['$distro' == "Arch"];then
     sudo pacman -S --noconfirm python
     sudo pacman -S --noconfirm w3m
     sudo pacman -S python-pip
+    sudo pacman -S --noconfirm kitty
 if ['$distro' == "Ubuntu"];then
     sudo apt install --y sl 
     sudo apt install --y neofetch 
@@ -78,6 +79,7 @@ if ['$distro' == "Ubuntu"];then
     sudo apt install --y python3
     sudo apt install --y w3m
     sudo apt install python3-pip -y
+    sduo apt install --y kitty
 if ['$distro' == "Debian"];then
     sudo apt install --y sl 
     sudo apt install --y neofetch 
@@ -86,6 +88,7 @@ if ['$distro' == "Debian"];then
     sudo apt install --y python3
     sudo apt install --y w3m
     sudo apt install python3-pip -y
+    sudo apt install  --y kitty
 if ['$distro' == "OpenSUSE"];then
     sudo zyper install --y sl 
     sudo zyper install --y neofetch 
@@ -94,6 +97,7 @@ if ['$distro' == "OpenSUSE"];then
     sudo zyper install --y python3
     sudo zyper install --y w3m
     python -m ensurepip
+    sudo zyper install --y kitty
 if ['$distro' == "Fedora"];then
     sudo dnf install --y sl 
     sudo dnf install --y neofetch 
@@ -102,6 +106,7 @@ if ['$distro' == "Fedora"];then
     sudo dnf install --y python3
     sudo dnf install --y w3m
     sudo dnf install python3-pip
+    sudo dnf install --y kitty
 if ['$distro' == "RHEL"];then
     printf "Sorry no support                                 :(\n"
     echo "If you think this is wrong check https://www.gnome.org/getting-gnome/ you need gnome to run and you can't get gnome on RHEL"
