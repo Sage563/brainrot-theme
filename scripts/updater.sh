@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Configuration
-REPO_URL="https://github.com/Sage563/brainrot-theme.git"  # Replace with your GitHub repository URL
-LOCAL_DIR="$HOME"             # Replace with your desired local directory
-LAST_COMMIT_FILE="/tmp/last_commit.txt"      # File to store the last fetched commit hash
+REPO_URL="https://github.com/Sage563/brainrot-theme.git"  # 
+LOCAL_DIR="$HOME"         
+LAST_COMMIT_FILE="/tmp/last_commit.txt"
 
 # Function to fetch the latest commit hash
 fetch_latest_commit_hash() {

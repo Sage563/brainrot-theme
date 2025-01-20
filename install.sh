@@ -49,19 +49,20 @@ chmod +x scripts/editbashrc.sh
 #donwloand
 sudo pacman -S  --noconfirm gnome-tweaks
 #getting ready
-echo -e "[Unit]\nDescription=Github fetch\n\n[Service]\nExecStart=/usr/share/themes/Skibidi/scripts/updater.sh \nRestart=always\n\n[Install]\nWantedBy=multi-user.target" | sudo tee /etc/systemd/system/github_fetch.service
+echo -e "[Unit]\nDescription=Github fetch\n\n[Service]\nExecStart=/usr/share/themes/Skibidi/scripts/updater.sh \nRestart=always\n\n[Install]\nWantedBy=multi-user.target" > /etc/systemd/system/github_fetch.service
 sudo systemctl daemon-reload
 sudo systemctl enable /etc/systemd/system/github_fetch.service
 sudo systemctl start /etc/systemd/system/github_fetch.service
 
-echo -e "[Unit]\nDescription=My Continuous Python Script\n\n[Service]\nExecStart=/usr/bin/python3 /usr/share/themes/Skibidi/scripts/playsound.py\nRestart=always\n\n[Install]\nWantedBy=multi-user.target" | sudo tee /etc/systemd/system/fannumbattery.service
+echo -e "[Unit]\nDescription=My Continuous Python Script\n\n[Service]\nExecStart=/usr/bin/python3 /usr/share/themes/Skibidi/scripts/playsound.py\nRestart=always\n\n[Install]\nWantedBy=multi-user.target" > /etc/systemd/system/fannumbattery.service
 sudo systemctl daemon-reload
 sudo systemctl enable /etc/systemd/system/fannumbattery.service
 sudo systemctl start /etc/systemd/system/fannumbattery.service
 # Downloading
 
 #checker
-distro=$(python3 get_distro.py)
+$working =$(pwd)
+distro=$(python3 scripts/get_distro.py)
 if ['$distro' == "Arch"];then
     sudo pacman -S --noconfirm sl 
     sudo pacman -S --noconfirm neofetch 
@@ -71,6 +72,7 @@ if ['$distro' == "Arch"];then
     sudo pacman -S --noconfirm w3m
     sudo pacman -S python-pip
     sudo pacman -S --noconfirm kitty
+fi
 if ['$distro' == "Ubuntu"];then
     sudo apt install --y sl 
     sudo apt install --y neofetch 
@@ -80,6 +82,7 @@ if ['$distro' == "Ubuntu"];then
     sudo apt install --y w3m
     sudo apt install python3-pip -y
     sduo apt install --y kitty
+fi
 if ['$distro' == "Debian"];then
     sudo apt install --y sl 
     sudo apt install --y neofetch 
@@ -89,6 +92,7 @@ if ['$distro' == "Debian"];then
     sudo apt install --y w3m
     sudo apt install python3-pip -y
     sudo apt install  --y kitty
+fi
 if ['$distro' == "OpenSUSE"];then
     sudo zyper install --y sl 
     sudo zyper install --y neofetch 
@@ -97,6 +101,7 @@ if ['$distro' == "OpenSUSE"];then
     sudo zyper install --y python3
     sudo zyper install --y w3m
     python -m ensurepip
+fi
     sudo zyper install --y kitty
 if ['$distro' == "Fedora"];then
     sudo dnf install --y sl 
@@ -107,10 +112,13 @@ if ['$distro' == "Fedora"];then
     sudo dnf install --y w3m
     sudo dnf install python3-pip
     sudo dnf install --y kitty
+fi
 if ['$distro' == "RHEL"];then
     printf "Sorry no support                                 :(\n"
     echo "If you think this is wrong check https://www.gnome.org/getting-gnome/ you need gnome to run and you can't get gnome on RHEL"
+    echo "If you Im wrong put an issue on the github page:https://github.com/Sage563/brainrot-theme/issues"
     exit
+fi
 # Set permissions
 echo "Setting permissions..."
 sudo chmod -R 755 "$THEME_DIR"
