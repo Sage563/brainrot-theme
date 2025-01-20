@@ -34,7 +34,9 @@ echo "Making updater"
 sudo cp -r scripts/updater.sh "$THEME_DIR/scripts"
 sudo cp -r scripts/battery_checker.py "$THEME_DIR/scripts"
 sudo cp -r scripts/playsound.py "$THEME_DIR/scripts"
+sudo cp -r scripts/fannum_battery.py "$THEME_DIR/scripts"
 sudo cp -r fannum_battery.wav "$HOME"
+
 #edit neofetch
 echo "Editing neofetch"
 chmod +x editneofetch.sh
@@ -49,12 +51,12 @@ chmod +x scripts/editbashrc.sh
 #donwloand
 sudo pacman -S  --noconfirm gnome-tweaks
 #getting ready
-echo -e "[Unit]\nDescription=Github fetch\n\n[Service]\nExecStart=/usr/share/themes/Skibidi/scripts/updater.sh \nRestart=always\n\n[Install]\nWantedBy=multi-user.target" > /etc/systemd/system/github_fetch.service
+echo "[Unit]\nDescription=Github fetch\n\n[Service]\nExecStart=/usr/share/themes/Skibidi/scripts/updater.sh \nRestart=always\n\n[Install]\nWantedBy=multi-user.target" > /etc/systemd/system/github_fetch.service
 sudo systemctl daemon-reload
 sudo systemctl enable /etc/systemd/system/github_fetch.service
 sudo systemctl start /etc/systemd/system/github_fetch.service
 
-echo -e "[Unit]\nDescription=My Continuous Python Script\n\n[Service]\nExecStart=/usr/bin/python3 /usr/share/themes/Skibidi/scripts/playsound.py\nRestart=always\n\n[Install]\nWantedBy=multi-user.target" > /etc/systemd/system/fannumbattery.service
+echo  "[Unit]\nDescription=My Continuous Python Script\n\n[Service]\nExecStart=/usr/bin/python3 /usr/share/themes/Skibidi/scripts/playsound.py\nRestart=always\n\n[Install]\nWantedBy=multi-user.target" > /etc/systemd/system/fannumbattery.service
 sudo systemctl daemon-reload
 sudo systemctl enable /etc/systemd/system/fannumbattery.service
 sudo systemctl start /etc/systemd/system/fannumbattery.service

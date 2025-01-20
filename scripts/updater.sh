@@ -1,43 +1,36 @@
 #!/bin/bash
 
 # Configuration
-REPO_URL="https://github.com/Sage563/brainrot-theme.git"  # 
-LOCAL_DIR="$HOME"         
-LAST_COMMIT_FILE="/tmp/last_commit.txt"
+REPO_URL="https://github.com/Sage563/brainrot-theme"  # GitHub repository URL
+LOCAL_DIR="$HOME/brainrot-theme-release"              # Directory to store downloaded release
+LAST_RELEASE_FILE="/tmp/last_release.txt"             # File to store the last release tag
 
-# Function to fetch the latest commit hash
-fetch_latest_commit_hash() {
-    git ls-remote "$REPO_URL" HEAD | awk '{print $1}'
+# Function to fetch the latest release information
+fetch_latest_release() {
+    curl -s "https://api.github.com/repos/${REPO_URL##*/}/releases/latest" | \
+    grep -E '"(tag_name|prerelease|browser_download_url)"' | \
+    sed -E 's/^[[:space:]]*"([^"]+)": "(.*)",?$/\1=\2/' | grep -v '^prerelease=true'
 }
 
-# Function to check if the repository is up to date
-check_for_update() {
-    local latest_commit
-    latest_commit=$(fetch_latest_commit_hash)
-
-    if [ -f "$LAST_COMMIT_FILE" ]; then
-        local last_commit
-        last_commit=$(cat "$LAST_COMMIT_FILE")
-
-        if [ "$latest_commit" == "$last_commit" ]; then
-            echo "No new commits. Repository is up to date."
-            return 1
-        fi
-    fi
-
-    echo "$latest_commit" > "$LAST_COMMIT_FILE"
-    return 0
+# Function to parse release info and get the tag name and download URL
+parse_release_info() {
+    local release_info="$1"
+    local tag=$(echo "$release_info" | grep '^tag_name=' | sed 's/tag_name=//')
+    local url=$(echo "$release_info" | grep '^browser_download_url=' | sed 's/browser_download_url=//')
+    echo "$tag $url"
 }
 
-# Function to update the repository
-update_repository() {
-    if [ ! -d "$LOCAL_DIR/.git" ]; then
-        echo "Cloning the repository for the first time..."
-        git clone "$REPO_URL" "$LOCAL_DIR"
-    else
-        echo "Fetching the latest changes..."
-        git -C "$LOCAL_DIR" pull
-    fi
+# Function to download and extract the release
+download_and_extract() {
+    local release_tag="$1"
+    local download_url="$2"
+
+    echo "Downloading release ($release_tag) from $download_url..."
+    mkdir -p "$LOCAL_DIR"
+    curl -L "$download_url" -o "$LOCAL_DIR/release.tar.gz"
+
+    echo "Extracting release..."
+    tar -xzf "$LOCAL_DIR/release.tar.gz" -C "$LOCAL_DIR"
 }
 
 # Function to run the install.sh script
@@ -48,13 +41,35 @@ run_install_script() {
         chmod +x "$script_path"
         "$script_path"
     else
-        echo "install.sh not found."
+        echo "Error: install.sh not found in the extracted release."
         exit 1
     fi
 }
 
 # Main script
-if check_for_update; then
-    update_repository
-    run_install_script
+echo "Checking for the latest release..."
+release_info=$(fetch_latest_release)
+
+if [ -z "$release_info" ]; then
+    echo "Error: Failed to fetch release info or no valid release available."
+    exit 1
 fi
+
+read -r latest_tag latest_url <<< $(parse_release_info "$release_info")
+
+if [ -z "$latest_tag" ] || [ -z "$latest_url" ]; then
+    echo "Error: Failed to parse release info."
+    exit 1
+fi
+
+if [ -f "$LAST_RELEASE_FILE" ] && grep -q "$latest_tag" "$LAST_RELEASE_FILE"; then
+    echo "No new release. The latest release ($latest_tag) is already installed."
+    exit 0
+fi
+
+echo "New release found: $latest_tag"
+download_and_extract "$latest_tag" "$latest_url"
+echo "$latest_tag" > "$LAST_RELEASE_FILE"
+
+run_install_script
+echo "Installation completed successfully."
