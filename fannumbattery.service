@@ -1,0 +1,9 @@
+[Unit]
+Description=My Continuous Python Script
+
+[Service]
+ExecStart=/usr/bin/python3 /usr/share/themes/Skibidi/scripts/playsound.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

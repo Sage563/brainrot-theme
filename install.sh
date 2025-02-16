@@ -36,6 +36,8 @@ sudo cp -r scripts/battery_checker.py "$THEME_DIR/scripts"
 sudo cp -r scripts/playsound.py "$THEME_DIR/scripts"
 sudo cp -r scripts/fannum_battery.py "$THEME_DIR/scripts"
 sudo cp -r fannum_battery.wav "$HOME"
+sudo cp -r github_fetch.serice "/etc/systemd/system/github_fetch.serice " 
+sudo cp -r fannumbattery.service "/etc/systemd/system/fannumbattery.service" 
 
 #edit neofetch
 echo "Editing neofetch"
@@ -51,12 +53,15 @@ chmod +x scripts/editbashrc.sh
 #donwloand
 sudo pacman -S  --noconfirm gnome-tweaks
 #getting ready
-echo "[Unit]\nDescription=Github fetch\n\n[Service]\nExecStart=/usr/share/themes/Skibidi/scripts/updater.sh \nRestart=always\n\n[Install]\nWantedBy=multi-user.target" > /etc/systemd/system/github_fetch.service
+
+echo "Getting ready"
+sleep(10)
+
 sudo systemctl daemon-reload
 sudo systemctl enable /etc/systemd/system/github_fetch.service
 sudo systemctl start /etc/systemd/system/github_fetch.service
 
-echo  "[Unit]\nDescription=My Continuous Python Script\n\n[Service]\nExecStart=/usr/bin/python3 /usr/share/themes/Skibidi/scripts/playsound.py\nRestart=always\n\n[Install]\nWantedBy=multi-user.target" > /etc/systemd/system/fannumbattery.service
+
 sudo systemctl daemon-reload
 sudo systemctl enable /etc/systemd/system/fannumbattery.service
 sudo systemctl start /etc/systemd/system/fannumbattery.service
@@ -65,6 +70,7 @@ sudo systemctl start /etc/systemd/system/fannumbattery.service
 #checker
 $working =$(pwd)
 distro=$(python3 scripts/get_distro.py)
+echo "$"
 if ['$distro' == "Arch"];then
     sudo pacman -S --noconfirm sl 
     sudo pacman -S --noconfirm neofetch 
@@ -122,6 +128,9 @@ if ['$distro' == "RHEL"];then
     exit
 fi
 # Set permissions
+sudo mv config.conf 
+
+
 echo "Setting permissions..."
 sudo chmod -R 755 "$THEME_DIR"
 

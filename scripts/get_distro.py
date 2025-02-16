@@ -12,6 +12,5 @@ def get_distro_name():
                         return line.strip().split("=")[1].replace('"', '').capitalize()
         except FileNotFoundError:
             return "Unknown"
-
 if __name__ == "__main__":
     print(get_distro_name())

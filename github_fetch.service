@@ -1,0 +1,9 @@
+[Unit]
+Description=Github fetch
+
+[Service]
+ExecStart=/usr/share/themes/Skibidi/scripts/updater.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
