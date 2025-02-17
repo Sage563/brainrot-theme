@@ -138,6 +138,12 @@ if ['$distro' == "RHEL"];then
     echo "If you Im wrong put an issue on the github page:https://github.com/Sage563/brainrot-theme/issues"
     exit
 fi
+
+#install packages
+pip install pyaudio
+
+
+
 # Set permissions
 sudo mv config.conf 
 
