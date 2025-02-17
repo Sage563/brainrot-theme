@@ -39,7 +39,7 @@ sudo cp -r scripts/fannum_battery.py "$THEME_DIR/scripts"
 sudo cp -r fannum_battery.wav "$HOME"
 sudo cp -r github_fetch.serice "/etc/systemd/system/github_fetch.serice " 
 sudo cp -r fannumbattery.service "/etc/systemd/system/fannumbattery.service" 
-sudo cp -r
+sudo cp -r 3hourfat.service "/etc/systemd/system/3hourfat.service"
 
 
 
@@ -70,6 +70,12 @@ sudo systemctl start /etc/systemd/system/github_fetch.service
 sudo systemctl daemon-reload
 sudo systemctl enable /etc/systemd/system/fannumbattery.service
 sudo systemctl start /etc/systemd/system/fannumbattery.service
+
+
+sudo systemctl daemon-reload
+sudo systemctl enable /etc/systemd/system/3hourfat.service
+sudo systemctl start /etc/systemd/system/3hourfat.service
+
 # Downloading
 
 #checker
