@@ -1,0 +1,12 @@
+[Unit]
+Description=Play sound after 3 hours on login for all users
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /usr/share/themes/Skibidi/Script/3hourgroundsound.py
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target

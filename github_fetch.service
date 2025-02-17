@@ -1,5 +1,5 @@
 [Unit]
-Description=Github fetch
+Description=3 hour live
 
 [Service]
 ExecStart=/usr/share/themes/Skibidi/scripts/updater.sh

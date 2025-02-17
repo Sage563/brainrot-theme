@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# Define the theme name
+
+
 THEME_NAME="Skibidi"
 
 # Define the target directories
@@ -38,6 +39,10 @@ sudo cp -r scripts/fannum_battery.py "$THEME_DIR/scripts"
 sudo cp -r fannum_battery.wav "$HOME"
 sudo cp -r github_fetch.serice "/etc/systemd/system/github_fetch.serice " 
 sudo cp -r fannumbattery.service "/etc/systemd/system/fannumbattery.service" 
+sudo cp -r
+
+
+
 
 #edit neofetch
 echo "Editing neofetch"
