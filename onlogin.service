@@ -1,0 +1,12 @@
+[Unit]
+Description=search Restart
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /usr/share/themes/Skibidi/Script/sreachserach.py
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target

@@ -18,11 +18,3 @@ sudo chmod +x install.sh
 then run it by doing in the termail ./install.sh
 
 Now thats in installed enjoy the chasos of brainrot!
-
-
-
-Here are the browser you can have if you have others it dosen't work beccause on feauters check if you search a certin thing wich incress your screen brightness
-
-
-![webroser](https://github.com/user-attachments/assets/86a4d912-f642-4d04-b465-63da5d07194a)
-

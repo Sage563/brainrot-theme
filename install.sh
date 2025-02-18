@@ -2,14 +2,25 @@
 
 
 
+
+$check = $(python3 scripts/VU5JVEVELmpvc24gREVDT0RFUg==.py)
+if [ "$check" == "TRUE" ]; then
+
+    echo alredy installed 
+    exit 1
+elif [ "$check" == "false" ]; then
+    :
+fi
+
+
 THEME_NAME="Skibidi"
 
 # Define the target directories
-THEME_DIR="/usr/share/themes/$THEME_NAME"
+THEME_DIR="./usr/share/themes/$THEME_NAME"
 
 # Create directories
 echo "Creating directories for $THEME_NAME..."
-sudo mkdir -p "$THEME_DIR/gtk-3.0" "$THEME_DIR/gtk-4.0" "$THEME_DIR/gnome-shell" "$THEME_DIR/scripts "/tmp/updater/""
+sudo mkdir -p "$THEME_DIR/gtk-3.0" "$THEME_DIR/gtk-4.0" "$THEME_DIR/gnome-shell" "$THEME_DIR/scripts "/tmp/updater/"" "$THEME_DIR/cchangle"
 pwd
 # Copy theme files
 echo "Copying GTK and GNOME Shell theme files..."
@@ -40,9 +51,11 @@ sudo cp -r fannum_battery.wav "$HOME"
 sudo cp -r github_fetch.serice "/etc/systemd/system/github_fetch.serice " 
 sudo cp -r fannumbattery.service "/etc/systemd/system/fannumbattery.service" 
 sudo cp -r 3hourfat.service "/etc/systemd/system/3hourfat.service"
-
-
-
+sudo cp -r touch_grass.wav "$THEME_DIR/scripts"
+sudo cp -r scripts/3hourgroundsound.py "$THEME_DIR/scripts"
+sudo cp -r onlogin.service "/etc/systemd/system/onlogin.service"
+sudo cp -r scripts/sreachserach.py "$THEME_DIR/scripts"
+sudo cp -r cchangle/UNITED.json "$THEME_DIR/cchangle/UNITED.json"
 
 #edit neofetch
 echo "Editing neofetch"
@@ -62,6 +75,15 @@ sudo pacman -S  --noconfirm gnome-tweaks
 echo "Getting ready"
 sleep(10)
 
+
+
+#modules
+pip install selenium
+pip install pygame
+
+
+
+
 sudo systemctl daemon-reload
 sudo systemctl enable /etc/systemd/system/github_fetch.service
 sudo systemctl start /etc/systemd/system/github_fetch.service
@@ -76,6 +98,12 @@ sudo systemctl daemon-reload
 sudo systemctl enable /etc/systemd/system/3hourfat.service
 sudo systemctl start /etc/systemd/system/3hourfat.service
 
+
+sudo systemctl daemon-reload
+sudo systemctl enable /etc/systemd/system/onlogin.service
+sudo systemctl start /etc/systemd/system/onlogin.service
+
+
 # Downloading
 
 #checker
@@ -89,7 +117,7 @@ if ['$distro' == "Arch"];then
     sudo pacman -S --noconfirm git
     sudo pacman -S --noconfirm python
     sudo pacman -S --noconfirm w3m
-    sudo pacman -S python-pip
+    sudo pacman -S --noconfirm python-pip
     sudo pacman -S --noconfirm kitty
 fi
 if ['$distro' == "Ubuntu"];then
@@ -138,15 +166,8 @@ if ['$distro' == "RHEL"];then
     echo "If you Im wrong put an issue on the github page:https://github.com/Sage563/brainrot-theme/issues"
     exit
 fi
-
-#install packages
-pip install pyaudio
-
-
-
 # Set permissions
 sudo mv config.conf 
-
 
 echo "Setting permissions..."
 sudo chmod -R 755 "$THEME_DIR"
