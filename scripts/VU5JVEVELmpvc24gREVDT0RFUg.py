@@ -18,6 +18,8 @@ def MAIN():
             
             if decodeed <= getid.miami(): # If 1.16 is better then deccodeed
                 return False
+            elif decodeed >= getid.miami():
+                return True
             
 
 
