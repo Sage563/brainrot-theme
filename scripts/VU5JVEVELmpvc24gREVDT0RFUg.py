@@ -20,6 +20,8 @@ def MAIN():
                 return False
             elif decodeed >= getid.miami():
                 return True
+            if decodeed ==getid.miami():
+                return False
             
 
 
