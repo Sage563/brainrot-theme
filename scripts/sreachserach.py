@@ -32,7 +32,8 @@ browsers = {
     "google-chrome": webdriver.Chrome,
     "chromium": webdriver.Chrome,
     "chromium-browser": webdriver.Chrome,
-    "safari": webdriver.Safari
+    "safari": webdriver.Safari,
+    "opera": webdriver.Opera
 }
 
 # Try launching a browser from the available ones

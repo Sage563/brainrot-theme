@@ -18,7 +18,3 @@ sudo chmod +x install.sh
 then run it by doing in the termail ./install.sh
 
 Now thats in installed enjoy the chasos of brainrot!
-
-
-Theres is a feature that only work with these web browser and not for opera
-![webroser](https://github.com/user-attachments/assets/86a4d912-f642-4d04-b465-63da5d07194a)

@@ -1,24 +1,14 @@
-import pyaudio
-import wave
+import pygame
+import time
+import os
 
+def sound(file):
+    pygame.mixer.init()
+    pygame.mixer.music.load(file)
+    pygame.mixer.music.play()
 
-def sound(filename):
-    wf = wave.open(filename, 'rb')
-    p = pyaudio.PyAudio()
-    
-    stream = p.open(format=p.get_format_from_width(wf.getsampwidth()),
-                    channels=wf.getnchannels(),
-                    rate=wf.getframerate(),
-                    output=True)
-
-    data = wf.readframes(1024)
-    while data:
-        stream.write(data)
-        data = wf.readframes(1024)
-
-    stream.stop_stream()
-    stream.close()
-    p.terminate()
+    while pygame.mixer.music.get_busy():  # Wait until the music finishes
+        pygame.time.Clock().tick(10)  # Prevents high CPU usage
 
 
 def playwav():

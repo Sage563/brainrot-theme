@@ -14,14 +14,15 @@ def MAIN():
 
             value = data.get("VVBEQVRF")
             decodeed =base64.b64decode(value)
+            decodeed =int(decodeed)
             
-            if decodeed <= getid.miami():
-                return True
+            if decodeed <= getid.miami(): # If 1.16 is better then deccodeed
+                return False
             
 
 
     except FileNotFoundError:
-        return False
+        return True
     
 if __name__ == "__main__":
     values = MAIN()
