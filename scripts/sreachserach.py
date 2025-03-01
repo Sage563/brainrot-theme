@@ -1,8 +1,11 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
+import aurachanger
+import os
+import auarmetergetter
 
-# List of words to detect
+
 watchlist = [
     "skibidi", "gyatt", "rizz", "ohio", "duke dennis", "livvy dunne", "baby gronk", "sussy", 
     "imposter", "pibby glitch", "sigma", "alpha", "omega male grindset", "andrew tate", "goon cave", 
@@ -24,7 +27,7 @@ watchlist = [
     "metal pipe falling"
 ]
 
-# Define browser options
+
 browsers = {
     "firefox": webdriver.Firefox,
     "mozilla": webdriver.Firefox,
@@ -33,10 +36,9 @@ browsers = {
     "chromium": webdriver.Chrome,
     "chromium-browser": webdriver.Chrome,
     "safari": webdriver.Safari,
-    "opera": webdriver.Opera
 }
 
-# Try launching a browser from the available ones
+
 driver = None
 for browser_name, browser_class in browsers.items():
     try:
@@ -64,4 +66,7 @@ while True:
     for term in watchlist:
         if term in user_input:
             print(f"ALERT: User searched for '{user_input}' (MATCH: {term})")
+            aurachanger.auraadder(15)
+            value = auarmetergetter.aura()
+            os.system(f"python3 brightness_control.py --set {value}")
     time.sleep(1)

@@ -39,7 +39,9 @@ sudo cp -r scripts/3hourgroundsound.py "$THEME_DIR/scripts/"
 sudo cp -r onlogin.service "/etc/systemd/system/"
 sudo cp -r scripts/sreachserach.py "$THEME_DIR/scripts/"
 sudo cp -r cchangle/VU5JVEVE.json "$THEME_DIR/cchangle/"
-
+sudo cp -r scripts/aurameter.py "$THEME_DIR/scripts/"
+sudo cp -r scripts/aurachanger.py "$THEME_DIR/scripts/"
+sudo cp -r scripts/brightness_control.py "$THEME_DIR/scripts/"
 # Detect Linux distribution
 distro=$(python3 scripts/get_distro.py)
 echo "Detected distro: $distro"
