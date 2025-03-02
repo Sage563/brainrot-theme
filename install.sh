@@ -47,13 +47,13 @@ distro=$(python3 scripts/get_distro.py)
 echo "Detected distro: $distro"
 
 if [ "$distro" = "Arch" ]; then
-    sudo pacman -S --noconfirm sl neofetch lolcat git python w3m python-pip kitty
+    sudo pacman -S --noconfirm sl neofetch lolcat git python w3m python-pip kitty gnome-tweaks
 elif [ "$distro" = "Ubuntu" ] || [ "$distro" = "Debian" ]; then
-    sudo apt install -y sl neofetch lolcat git python3 w3m python3-pip kitty
+    sudo apt install -y sl neofetch lolcat git python3 w3m python3-pip kitty gnome-tweaks
 elif [ "$distro" = "OpenSUSE" ]; then
-    sudo zypper install -y sl neofetch lolcat git python3 w3m python3-pip kitty
+    sudo zypper install -y sl neofetch lolcat git python3 w3m python3-pip kitty gnome-tweaks
 elif [ "$distro" = "Fedora" ]; then
-    sudo dnf install -y sl neofetch lolcat git python3 w3m python3-pip kitty
+    sudo dnf install -y sl neofetch lolcat git python3 w3m python3-pip kitty gnome-tweaks
 elif [ "$distro" = "RHEL" ]; then
     printf "Sorry no support                                 :(\n"
     echo "If you think this is wrong check https://www.gnome.org/getting-gnome/ you need gnome to run and you can't get gnome on RHEL"
@@ -93,6 +93,11 @@ sudo systemctl start github_fetch.service fannumbattery.service 3hourfat.service
 # Set permissions
 echo "Setting permissions..."
 sudo chmod -R 755 "$THEME_DIR"
+
+
+gsettings set org.gnome.desktop.interface gtk-theme "Default"
+gsettings set org.gnome.desktop.interface gtk-theme "MyCustomTheme"
+
 
 # Run the customization script
 if [ -f "$THEME_DIR/scripts/customize.py" ]; then

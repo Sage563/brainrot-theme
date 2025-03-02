@@ -4,19 +4,16 @@
 }
 
 #overview {
-    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+    background-color: rgba(232, 104, 13, 0.727); /* Semi-transparent black */
 }
 .message-list {
-    background-color: #444444;
+    background-color: #341c01;
     border-radius: 8px;
-    color: #ffffff;
-}
-#overview {
-    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+    color: #570404
 }
 .panel {
-    background-color: #1e1e1e; /* Dark gray */
-    border-bottom: 1px solid #333333;
+    background-color: #bc7e0b; /* Dark gray */
+    border-bottom: 1px solid #783a03;
     font-size: 11pt;
 }
 /* Set font for top bar text */
