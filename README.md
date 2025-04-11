@@ -20,8 +20,9 @@ then run it by doing in the termail ./install.sh
 Now thats in installed enjoy the chasos of brainrot!
 
 
-
-    FEATURES :
-
-
+Features:
+    WHen used computer for 3 hours it plays a sound saying "Touch grass"
+    And when computer batery is 19 percent
+    A aura metter that controls your bright ness by brain rot words
+    And custom colors
     
