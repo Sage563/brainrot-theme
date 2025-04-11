@@ -16,7 +16,7 @@ def MAIN():
             decodeed =base64.b64decode(value)
             decodeed =int(decodeed)
             
-            if decodeed <= getid.miami(): # If 1.16 is better then deccodeed
+            if decodeed <= getid.miami(): 
                 return False
             elif decodeed >= getid.miami():
                 return True

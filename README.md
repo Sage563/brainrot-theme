@@ -18,3 +18,10 @@ sudo chmod +x install.sh
 then run it by doing in the termail ./install.sh
 
 Now thats in installed enjoy the chasos of brainrot!
+
+
+
+    FEATURES :
+
+
+    

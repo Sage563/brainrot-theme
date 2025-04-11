@@ -1,26 +1,68 @@
 /* Change background color for GTK windows */
 
 @font-face {
-    font-family: 'Meme'; /*For what the font is called */
+    font-family: 'Meme';
     src: url('papyrus.ttf');
 }
 window {
-    background-color: #7A4B3A;  /* Brown background */
-    color: #ffffff;              /* White text */
+    background-color: #7A4B3A;  
+    color: #ffffff;              
     font-family: 'Meme';
 }
 
-/* Button background color */
 button {
-    background-color: #9E7B5F;  /* Light brown button background */
-    color: #ffffff;              /* White button text */
-    border: 1px solid #7A4B3A;   /* Darker brown border */
+    background-color: #9E7B5F; 
+    color: #ffffff;              
+    border: 1px solid #7A4B3A;   
     font-family: 'Meme';
 }
 
-/* Text entry field background */
+
 entry {
-    background-color: #9E7B5F;  /* Brown background */
-    color: #ffffff;              /* White text */
+    background-color: #9E7B5F;  
+    color: #ffffff;             
 }
 
+label {
+    color: #7A4B3A;              
+    font-family: 'Meme';   
+}
+
+
+button:hover {
+    background-color: #434c5e;
+}
+
+
+
+menu {
+    background-color: #2e3440;
+}
+
+menuitem {
+    color: #eceff4;
+    padding: 6px;
+}
+
+
+menuitem:selected {
+    background-color: #4c566a;
+}
+
+
+scrollbar {
+    width: 8px;
+    background-color: #3b4252;
+}
+
+scrollbar slider {
+    background-color: #7A4B3A;
+}
+
+
+.window-titlebar {
+    background-color: #7A4B3A;  
+    color: #eceff4;              
+    font-size: 14px;
+    padding: 10px;
+}
